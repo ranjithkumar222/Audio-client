@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receive Audio</title>
+</head>
+<body>
+    <h1>Audio Receiver</h1>
+    <audio id="audioPlayer" controls autoplay></audio>
+    <p id="status">Status: Disconnected</p>
+    <p id="audioStatus">Audio Status: Not Receiving</p>
+
+    <script>
+        const audioElement = document.getElementById('audioPlayer');
+        const statusElement = document.getElementById('status');
+        const audioStatusElement = document.getElementById('audioStatus');
+
+        // Simulate WebRTC connection and audio reception
+        const simulateConnection = () => {
+            setTimeout(() => {
+                statusElement.innerText = "Status: Connected";
+            }, 2000); // Simulate connection after 2 seconds
+
+            setTimeout(() => {
+                audioStatusElement.innerText = "Audio Status: Receiving Audio";
+                const fakeAudioStream = new MediaStream(); // Replace with real audio stream from WebRTC
+                audioElement.srcObject = fakeAudioStream;
+            }, 4000); // Simulate audio reception after 4 seconds
+        };
+
+        simulateConnection(); // Simulate the connection
+    </script>
+</body>
+</html>
